@@ -16,6 +16,10 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+- **portfolio** (`/`) — Muhammad Faseeh Ul Hassan portfolio website. Dark purple/black theme, animated particle canvas with mouse interaction, floating orb backgrounds, Space Grotesk + Space Mono fonts. Sections: Home, Experience, Projects, Expertise, Certifications, About. Pure React frontend, no backend.
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
