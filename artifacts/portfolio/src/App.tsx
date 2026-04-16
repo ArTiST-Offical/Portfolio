@@ -6,9 +6,10 @@ import Experience from "@/pages/Experience";
 import Projects from "@/pages/Projects";
 import Expertise from "@/pages/Expertise";
 import Certifications from "@/pages/Certifications";
+import Trainings from "@/pages/Trainings";
 import About from "@/pages/About";
 
-type Section = "home" | "experience" | "projects" | "expertise" | "certifications" | "about";
+type Section = "home" | "experience" | "projects" | "expertise" | "certifications" | "trainings" | "about";
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>("home");
@@ -43,6 +44,8 @@ function App() {
         return <Expertise />;
       case "certifications":
         return <Certifications />;
+      case "trainings":
+        return <Trainings />;
       case "about":
         return <About />;
       default:
@@ -64,7 +67,7 @@ function App() {
         style={{
           position: "relative",
           zIndex: 1,
-          transition: "opacity 0.2s ease",
+          transition: "opacity 0.2s ease, transform 0.2s ease",
           opacity: isTransitioning ? 0 : 1,
           transform: isTransitioning ? "translateY(8px)" : "translateY(0)",
         }}

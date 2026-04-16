@@ -7,6 +7,8 @@ const SECTION_BUTTONS = [
   { label: "Projects", key: "projects" },
   { label: "Expertise", key: "expertise" },
   { label: "Certifications", key: "certifications" },
+  { label: "Trainings", key: "trainings" },
+  { label: "About Me", key: "about" },
 ];
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -43,7 +45,7 @@ export default function Home({ onNavigate }: HomeProps) {
           display: "grid",
           gridTemplateColumns: "repeat(2, auto)",
           gap: "0.75rem",
-          marginBottom: "0.75rem",
+          marginBottom: "4rem",
           width: "fit-content",
         }}
       >
@@ -59,21 +61,7 @@ export default function Home({ onNavigate }: HomeProps) {
         ))}
       </div>
 
-      <div
-        className="fade-in-up fade-in-up-delay-4"
-        style={{ display: "flex", justifyContent: "center", width: "fit-content", marginBottom: "4rem" }}
-      >
-        <button
-          className="section-btn"
-          onClick={() => onNavigate("about")}
-          style={{ minWidth: "200px" }}
-        >
-          <span>About Me</span>
-          <span className="chevron">&gt;</span>
-        </button>
-      </div>
-
-      <div className="fade-in-up fade-in-up-delay-5">
+      <div className="fade-in-up fade-in-up-delay-4" style={{ display: "flex", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
         <a
           href="https://linkedin.com/in/muhammad-faseeh-ul-hassan-609010398"
           target="_blank"
@@ -85,6 +73,20 @@ export default function Home({ onNavigate }: HomeProps) {
             <circle cx="4" cy="4" r="2" />
           </svg>
           linkedin.com/in/muhammad-faseeh-ul-hassan-609010398
+        </a>
+
+        <a
+          href="/resume.pdf"
+          download="Muhammad_Faseeh_Ul_Hassan_Resume.pdf"
+          className="social-handle"
+          style={{ color: "rgba(168,85,247,0.8)" }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,0.7)" strokeWidth="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Download Resume
         </a>
       </div>
     </div>
