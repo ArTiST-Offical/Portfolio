@@ -2,60 +2,60 @@ const EXPERTISE = [
   {
     name: "AI Red Teaming",
     subs: [
-      "Adversarial prompt engineering",
-      "Jailbreak & bypass research",
-      "Multimodal attack surfaces",
+      "Structured red team operations against LLMs",
+      "Agentic system manipulation",
+      "Multi-turn adversarial attack design",
     ],
   },
   {
-    name: "Secure Machine Learning",
+    name: "Prompt Injection & Jailbreaking",
     subs: [
-      "Threat modeling for AI systems",
-      "AI model hardening techniques",
-      "AI security benchmarking",
+      "Multilayered & evasive prompt strategies",
+      "Instruction override techniques",
+      "Encoding & obfuscation methods",
     ],
   },
   {
-    name: "AI-Based Attack Simulation",
+    name: "LLM Vulnerability Research",
     subs: [
-      "Custom AI attack frameworks",
-      "Fuzzing & boundary testing",
-      "End-to-end attack automation",
+      "Safety bypass identification",
+      "Data leakage & context manipulation",
+      "Model misalignment exploitation",
     ],
   },
   {
-    name: "AI Security Assessments",
+    name: "Attack Chain Development",
     subs: [
-      "AI security risk management",
-      "Regulatory compliance audits",
-      "Penetration testing for ML APIs",
+      "Token-based scoring exploitation",
+      "Multi-intent extraction strategies",
+      "Layered AI exploitation frameworks",
     ],
   },
   {
-    name: "Secure AI Data Pipeline",
+    name: "Security Tool Building",
     subs: [
-      "Differential privacy implementation",
-      "Federated learning security",
-      "Data provenance & integrity",
+      "Adversarial prompt testing frameworks",
+      "AI attack lab infrastructure",
+      "PoC development & automation",
     ],
   },
   {
-    name: "Security Tool Development",
+    name: "Vulnerability Reporting",
     subs: [
-      "Custom red team tooling",
-      "Vulnerability scanner development",
-      "Secure CI/CD for AI systems",
+      "Risk assessment & documentation",
+      "Responsible disclosure practices",
+      "Mitigation strategy recommendations",
     ],
   },
 ];
 
 const SKILL_BARS = [
-  { label: "LLM Security & Red Teaming", value: 97 },
-  { label: "Adversarial Machine Learning", value: 94 },
-  { label: "AI Security Architecture", value: 90 },
-  { label: "Threat Modeling", value: 88 },
-  { label: "Security Tool Development", value: 85 },
-  { label: "Privacy-Preserving ML", value: 82 },
+  { label: "Prompt Injection & Jailbreaking", value: 98 },
+  { label: "LLM Red Teaming", value: 96 },
+  { label: "Adversarial Attack Design", value: 94 },
+  { label: "Agent Exploitation", value: 90 },
+  { label: "Security Tool Development (Python)", value: 87 },
+  { label: "Vulnerability Research & Reporting", value: 92 },
 ];
 
 export default function Expertise() {
@@ -101,42 +101,15 @@ export default function Expertise() {
             className="fade-in-up"
             style={{ marginBottom: "1rem", animationDelay: `${0.4 + i * 0.08}s`, opacity: 0 }}
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: "0.3rem",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.6rem",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.65)",
-                }}
-              >
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.3rem" }}>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.65)" }}>
                 {skill.label}
               </span>
-              <span
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.6rem",
-                  color: "rgba(168,85,247,0.8)",
-                }}
-              >
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.6rem", color: "rgba(168,85,247,0.8)" }}>
                 {skill.value}%
               </span>
             </div>
-            <div
-              style={{
-                height: "2px",
-                background: "rgba(168,85,247,0.15)",
-                borderRadius: "1px",
-                overflow: "hidden",
-              }}
-            >
+            <div style={{ height: "2px", background: "rgba(168,85,247,0.15)", borderRadius: "1px", overflow: "hidden" }}>
               <div
                 style={{
                   height: "100%",
@@ -155,11 +128,11 @@ export default function Expertise() {
       </div>
 
       <div style={{ marginTop: "2rem" }}>
-        <a href="https://instagram.com/reallygreatsite" target="_blank" rel="noopener noreferrer" className="social-handle">
+        <a href="https://linkedin.com/in/muhammad-faseeh-ul-hassan-609010398" target="_blank" rel="noopener noreferrer" className="social-handle">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ color: "rgba(168,85,247,0.7)" }}>
-            <circle cx="12" cy="12" r="2" /><circle cx="4" cy="12" r="2" /><circle cx="20" cy="12" r="2" />
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" />
           </svg>
-          @reallygreatsite
+          linkedin.com/in/muhammad-faseeh-ul-hassan-609010398
         </a>
       </div>
 
