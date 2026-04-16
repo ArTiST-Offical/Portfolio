@@ -1,5 +1,15 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+
+node_modules
+.cache
+.artifacts
+dist
+build
+.env
+pnpm-lock.yaml
+
+
 # compiled output
 dist
 tmp
