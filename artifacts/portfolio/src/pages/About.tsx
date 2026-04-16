@@ -15,36 +15,27 @@ export default function About() {
         <div className="fade-in-up fade-in-up-delay-1">
           <div
             style={{
-              width: 180,
-              height: 220,
-              border: "1px solid rgba(168,85,247,0.3)",
-              background: "rgba(168,85,247,0.06)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              width: 210,
+              height: 260,
+              border: "1px solid rgba(168,85,247,0.4)",
               flexShrink: 0,
               position: "relative",
               overflow: "hidden",
+              boxShadow: "0 0 40px rgba(168,85,247,0.15)",
             }}
           >
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(7,1,15,0.9) 100%)" }} />
-            <div
+            <img
+              src="/profile.png"
+              alt="Muhammad Faseeh Ul Hassan"
               style={{
-                width: 80,
-                height: 80,
-                borderRadius: "50%",
-                border: "2px solid rgba(168,85,247,0.4)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "relative",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center top",
+                display: "block",
               }}
-            >
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,0.7)" strokeWidth="1">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
+            />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(7,1,15,0.6) 100%)", pointerEvents: "none" }} />
           </div>
         </div>
 
