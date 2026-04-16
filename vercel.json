@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm install --frozen-lockfile && pnpm run build",
+  "outputDirectory": "artifacts/portfolio/dist",
+  "framework": "vite",
+  "regions": ["sfo1"],
+  "cleanUrls": true
+}
