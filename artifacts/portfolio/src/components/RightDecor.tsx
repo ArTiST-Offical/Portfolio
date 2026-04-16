@@ -8,87 +8,32 @@ interface RightDecorProps {
 
 /* ── HOME: hero image with glow ── */
 function HomeDec() {
-  const [glowTick, setGlowTick] = useState(0);
-  useEffect(() => {
-    const iv = setInterval(() => setGlowTick((t) => t + 1), 60);
-    return () => clearInterval(iv);
-  }, []);
-
-  const glowIntensity = 0.35 + Math.sin(glowTick * 0.04) * 0.15;
 
   return (
     <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "100%",
-      minHeight: 420,
-      padding: "1.5rem",
-      gap: "1rem",
+      position: "absolute",
+      inset: 0,
+      overflow: "hidden",
     }}>
-      <div style={{
-        position: "relative",
-        width: 260,
-        height: 220,
-      }}>
-        {/* Corner accents */}
-        {[
-          { top: -6, left: -6, borderTop: "2px solid #a855f7", borderLeft: "2px solid #a855f7" },
-          { top: -6, right: -6, borderTop: "2px solid #a855f7", borderRight: "2px solid #a855f7" },
-          { bottom: -6, left: -6, borderBottom: "2px solid #a855f7", borderLeft: "2px solid #a855f7" },
-          { bottom: -6, right: -6, borderBottom: "2px solid #a855f7", borderRight: "2px solid #a855f7" },
-        ].map((style, i) => (
-          <div key={i} style={{ position: "absolute", width: 16, height: 16, ...style }} />
-        ))}
+      {/* Image fills the entire right panel */}
+      <img
+        src="/home-hero.png"
+        alt="AI Red Team Visual"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+          display: "block",
+          opacity: 0.75,
+        }}
+      />
 
-        {/* Outer glow */}
-        <div style={{
-          position: "absolute",
-          inset: -1,
-          boxShadow: `0 0 ${30 + glowIntensity * 40}px rgba(168,85,247,${glowIntensity}), inset 0 0 20px rgba(168,85,247,0.06)`,
-          border: "1px solid rgba(168,85,247,0.35)",
-          pointerEvents: "none",
-        }} />
-
-        {/* Image */}
-        <img
-          src="/home-hero.png"
-          alt="AI Red Team Visual"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-            display: "block",
-          }}
-        />
-
-        {/* Bottom fade overlay */}
-        <div style={{
-          position: "absolute",
-          bottom: 0, left: 0, right: 0, height: "35%",
-          background: "linear-gradient(180deg, transparent, rgba(7,1,15,0.6))",
-          pointerEvents: "none",
-        }} />
-      </div>
-
-      {/* Label beneath image */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem",
-      }}>
-        <div style={{ width: 24, height: 1, background: "rgba(168,85,247,0.4)" }} />
-        <span style={{
-          fontFamily: "'Space Mono', monospace",
-          fontSize: "0.55rem",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "rgba(168,85,247,0.6)",
-        }}>AI Security Research</span>
-        <div style={{ width: 24, height: 1, background: "rgba(168,85,247,0.4)" }} />
-      </div>
+      {/* Heavy gradient fade on every edge to blend into the dark background */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(7,1,15,1) 0%, rgba(7,1,15,0.6) 22%, transparent 50%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to left,  rgba(7,1,15,0.9) 0%, rgba(7,1,15,0.4) 20%, transparent 45%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(7,1,15,1) 0%, rgba(7,1,15,0.55) 20%, transparent 45%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(7,1,15,0.95) 0%, rgba(7,1,15,0.4) 20%, transparent 45%)", pointerEvents: "none" }} />
     </div>
   );
 }
@@ -479,9 +424,8 @@ export default function RightDecor({ section }: RightDecorProps) {
         position: "sticky",
         top: "5rem",
         width: "100%",
-        maxHeight: "calc(100vh - 6rem)",
+        height: "calc(100vh - 6rem)",
         overflow: "hidden",
-        borderLeft: "1px solid rgba(168,85,247,0.1)",
       }}
     >
       {section === "home" && <HomeDec />}
