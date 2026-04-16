@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 type Section = "home" | "experience" | "projects" | "expertise" | "certifications" | "trainings" | "about";
 
@@ -6,88 +6,88 @@ interface RightDecorProps {
   section: Section;
 }
 
-/* ── HOME: floating security keywords ── */
-const SEC_TERMS = [
-  "PROMPT_INJECTION", "JAILBREAK", "LLM_EXPLOIT", "RED_TEAM",
-  "ADVERSARIAL", "AGENT_MANIPULATION", "SAFETY_BYPASS", "MULTI_TURN",
-  "INSTRUCTION_OVERRIDE", "TOKEN_EXTRACTION", "CONTEXT_POISONING",
-  "ATTACK_CHAIN", "MODEL_INVERSION", "DATA_LEAKAGE", "AI_VULN",
-  "EVASION", "HALLUCINATION", "PROMPT_FORGE", "PENTEST_AI",
-];
-
+/* ── HOME: hero image with glow ── */
 function HomeDec() {
-  const [terms, setTerms] = useState<{ id: number; text: string; x: number; y: number; opacity: number; size: number }[]>([]);
-  const counter = useRef(0);
-
+  const [glowTick, setGlowTick] = useState(0);
   useEffect(() => {
-    const spawn = () => {
-      const id = counter.current++;
-      const text = SEC_TERMS[Math.floor(Math.random() * SEC_TERMS.length)];
-      setTerms((prev) => [
-        ...prev.slice(-18),
-        { id, text, x: 5 + Math.random() * 85, y: 90 + Math.random() * 10, opacity: 0, size: 8 + Math.random() * 5 },
-      ]);
-    };
-    const iv = setInterval(spawn, 800);
+    const iv = setInterval(() => setGlowTick((t) => t + 1), 60);
     return () => clearInterval(iv);
   }, []);
 
-  useEffect(() => {
-    const tick = setInterval(() => {
-      setTerms((prev) =>
-        prev
-          .map((t) => ({ ...t, y: t.y - 0.4, opacity: t.y > 60 ? Math.min(1, (90 - t.y) / 15) : t.y < 20 ? t.y / 20 : 1 }))
-          .filter((t) => t.y > -5)
-      );
-    }, 50);
-    return () => clearInterval(tick);
-  }, []);
+  const glowIntensity = 0.35 + Math.sin(glowTick * 0.04) * 0.15;
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
-      {terms.map((t) => (
-        <div
-          key={t.id}
-          style={{
-            position: "absolute",
-            left: `${t.x}%`,
-            top: `${t.y}%`,
-            fontFamily: "'Space Mono', monospace",
-            fontSize: `${t.size}px`,
-            color: `rgba(168,85,247,${(t.opacity * 0.6).toFixed(2)})`,
-            letterSpacing: "0.1em",
-            whiteSpace: "nowrap",
-            transition: "none",
-            userSelect: "none",
-          }}
-        >
-          {t.text}
-        </div>
-      ))}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,1,15,0.7) 0%, transparent 20%, transparent 80%, rgba(7,1,15,0.8) 100%)", pointerEvents: "none" }} />
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      minHeight: 420,
+      padding: "1.5rem",
+      gap: "1rem",
+    }}>
+      <div style={{
+        position: "relative",
+        width: 260,
+        height: 220,
+      }}>
+        {/* Corner accents */}
+        {[
+          { top: -6, left: -6, borderTop: "2px solid #a855f7", borderLeft: "2px solid #a855f7" },
+          { top: -6, right: -6, borderTop: "2px solid #a855f7", borderRight: "2px solid #a855f7" },
+          { bottom: -6, left: -6, borderBottom: "2px solid #a855f7", borderLeft: "2px solid #a855f7" },
+          { bottom: -6, right: -6, borderBottom: "2px solid #a855f7", borderRight: "2px solid #a855f7" },
+        ].map((style, i) => (
+          <div key={i} style={{ position: "absolute", width: 16, height: 16, ...style }} />
+        ))}
 
-      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
-        <div style={{ position: "relative", width: 160, height: 160 }}>
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              style={{
-                position: "absolute",
-                inset: `${i * 22}px`,
-                border: `1px solid rgba(168,85,247,${0.4 - i * 0.1})`,
-                borderRadius: "50%",
-                animation: `spin${i % 2 === 0 ? "Cw" : "Ccw"} ${10 + i * 5}s linear infinite`,
-              }}
-            />
-          ))}
-          <div style={{
-            position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
-            fontFamily: "'Space Mono', monospace", fontSize: "0.55rem", color: "rgba(168,85,247,0.9)",
-            letterSpacing: "0.1em", textAlign: "center", lineHeight: 1.6,
-          }}>
-            AI<br />RED<br />TEAM
-          </div>
-        </div>
+        {/* Outer glow */}
+        <div style={{
+          position: "absolute",
+          inset: -1,
+          boxShadow: `0 0 ${30 + glowIntensity * 40}px rgba(168,85,247,${glowIntensity}), inset 0 0 20px rgba(168,85,247,0.06)`,
+          border: "1px solid rgba(168,85,247,0.35)",
+          pointerEvents: "none",
+        }} />
+
+        {/* Image */}
+        <img
+          src="/home-hero.png"
+          alt="AI Red Team Visual"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            display: "block",
+          }}
+        />
+
+        {/* Bottom fade overlay */}
+        <div style={{
+          position: "absolute",
+          bottom: 0, left: 0, right: 0, height: "35%",
+          background: "linear-gradient(180deg, transparent, rgba(7,1,15,0.6))",
+          pointerEvents: "none",
+        }} />
+      </div>
+
+      {/* Label beneath image */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+      }}>
+        <div style={{ width: 24, height: 1, background: "rgba(168,85,247,0.4)" }} />
+        <span style={{
+          fontFamily: "'Space Mono', monospace",
+          fontSize: "0.55rem",
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "rgba(168,85,247,0.6)",
+        }}>AI Security Research</span>
+        <div style={{ width: 24, height: 1, background: "rgba(168,85,247,0.4)" }} />
       </div>
     </div>
   );
