@@ -1,9 +1,7 @@
 {
-  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
-  "outputDirectory": "artifacts/portfolio/dist",
+  "buildCommand": "pnpm install --frozen-lockfile && pnpm run build",
+  "outputDirectory": "artifacts/portfolio/dist/public",
   "framework": "vite",
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+  "regions": ["sfo1"],
+  "cleanUrls": true
 }
