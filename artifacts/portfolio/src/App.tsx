@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import Navbar from "@/components/Navbar";
 import RightDecor from "@/components/RightDecor";
@@ -91,6 +92,7 @@ function App() {
           .right-decor-panel { display: block !important; }
         }
       `}</style>
+      <Analytics />
     </div>
   );
 }
