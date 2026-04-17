@@ -74,6 +74,7 @@ function ExpDec() {
       const t = setTimeout(() => setVisibleCount(0), 2500);
       return () => clearTimeout(t);
     }
+    return undefined;
   }, [visibleCount]);
 
   return (
